@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <SmoothScroll />
         <Navbar />
-        <main className="pt-16">{children}</main>
+        <main className="">{children}</main>
         <Footer />
       </body>
     </html>

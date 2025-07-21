@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/public/images/Logo.png";
+import logo from "@/public/images/Logo2.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,9 +27,9 @@ const Navbar = () => {
     <header className="w-full fixed top-0 z-50 px-4 pt-4">
       <div
         className="max-w-7xl mx-auto flex justify-between items-center 
-        bg-[#120022]/60 backdrop-blur-md border border-[#ffffff14] 
-        rounded-xl px-6 py-3 shadow-lg"
-        style={{ boxShadow: "0 0 20px rgba(255, 255, 255, 0.15)" }}
+        bg-black/50 backdrop-blur-md border border-[#ffffff14] 
+        rounded-full px-6 py-3 shadow-lg"
+
       >
         {/* Logo */}
         <Link href="/">
@@ -42,7 +42,7 @@ const Navbar = () => {
             <Link
               key={i}
               href={link.path}
-              className="hover:text-[#D175B6] transition font-medium"
+              className="hover:text-[#543dff] transition font-medium"
             >
               {link.name}
             </Link>
@@ -52,7 +52,7 @@ const Navbar = () => {
         {/* Contact Us Button */}
         <div className="hidden md:block">
           <Link href="/contact">
-            <button className="bg-[#A445ED] hover:bg-[#D175B6] transition text-white px-4 py-2 rounded-md font-medium text-sm shadow">
+            <button className=" bg-[#4514D0] hover:bg-[#9a7af2] transition text-white px-4 py-2 rounded-md font-medium text-sm shadow">
               Contact Us
             </button>
           </Link>
@@ -92,7 +92,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-              <button className="mt-4 bg-[#A445ED] hover:bg-[#D175B6] transition text-white px-4 py-2 rounded-md font-medium text-sm shadow w-full">
+              <button className="mt-4 bg-[#4514D0] hover:bg-[#9a7af2] transition text-white px-4 py-2 rounded-md font-medium text-sm shadow w-full">
                 Contact Us
               </button>
             </Link>
