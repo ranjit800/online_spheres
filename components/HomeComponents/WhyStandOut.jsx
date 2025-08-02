@@ -33,12 +33,12 @@ const features = [
 
 const WhyStandOut = () => {
   return (
-    <section className="relative px-4 md:px-12 py-20 bg-[#0B0212] text-white overflow-hidden">
+    <section className="relative px-4 md:px-12 py-20  text-white overflow-hidden">
       <Image
         src={Ringbg}
         alt="Abstract background graphic"
         fill
-        className="object-cover z-0 opacity-20"
+        className="object-cover z-0 "
       />
       <div className="relative max-w-7xl mx-auto z-10">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-12 text-left">
@@ -50,7 +50,7 @@ const WhyStandOut = () => {
           {features.map((item, index) => (
             <div
               key={index}
-              className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm flex flex-col min-h-[280px]"
+              className="bg-[#9A9A9A]/20 border border-white/10 rounded-2xl p-6 backdrop-blur-sm flex flex-col min-h-[280px]"
             >
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-2xl md:text-3xl font-bold max-w-[60%]">

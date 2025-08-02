@@ -7,7 +7,7 @@ const AboutSection = () => {
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
           About{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0783FF] to-[#A100FE]">
             OnlineSpheres
           </span>
         </h2>
@@ -21,20 +21,21 @@ const AboutSection = () => {
           <a href="#" className="text-lg font-semibold flex items-center gap-2 group text-white">
             Know More
             <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            >
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+                          xmlns="http://www.w3.org/2000/svg" 
+                          width="30" 
+                          height="30" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          strokeWidth="2" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          className="transition-transform duration-300 group-hover:translate-x-1 border border-white/50 rounded-full p-1"
+                      >
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+           
           </a>
           <div className="h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 mt-1"></div>
         </div>

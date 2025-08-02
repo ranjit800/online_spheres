@@ -31,42 +31,52 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="bg-black text-white py-20 px-4 sm:px-6 lg:px-8">
+    <section className=" text-white py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
             <div className="flex justify-between items-center mb-12">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                     Why choose us <br /> for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Web Development</span>
                 </h2>
-                <a href="#" className="hidden md:inline-flex items-center gap-2 text-lg font-semibold group">
-                    Talk To An Expert
-                    <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        width="24" 
-                        height="24" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        strokeWidth="2" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        className="transition-transform duration-300 group-hover:translate-x-1 border border-white/50 rounded-full p-1"
-                    >
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
+                <div className="flex flex-col items-start ">
+                  <a href="#" className="hidden md:inline-flex items-center gap-2 text-lg font-semibold group">
+                      Talk To An Expert
+                      <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          width="30" 
+                          height="30" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          strokeWidth="2" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          className="transition-transform duration-300 group-hover:translate-x-1 border border-white/50 rounded-full p-1"
+                      >
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                  </a>
+                  <div className="h-0.5 w-full bg-gradient-to-r from-[#0783FF] to-[#A100FE] mt-1"></div>
+                </div>
             </div>
+                <hr className='w-full border-white/70 my-10' />
 
-            <div className="relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
+            <div className="relative ">
+                <div className="md:block hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
                     <div className="w-24 h-24">
                         <Image src={centerIcon} alt="Decorative center icon" layout="responsive" width={96} height={96} />
                     </div>
                 </div>
                 
-                <div className="flex flex-col md:flex-row md:flex-wrap gap-8 justify-center">
+                <div className="flex flex-col md:flex-row md:flex-wrap gap-8 justify-center ">
                     {whyChooseUsData.map((item, index) => (
-                        <div key={index} className={`bg-white/5 border border-white/10 p-8 backdrop-blur-sm flex flex-col z-0 md:w-[calc(50%-1rem)] ${borderRadiusClasses[index]}`}>
+                        <div
+                          key={index}
+                          className={`border border-white/10 p-10 backdrop-blur-sm flex flex-col z-0 md:w-[calc(50%-1rem)] rounded-2xl ${borderRadiusClasses[index]}`}
+                          style={{
+                            background: "linear-gradient(98deg, rgba(255, 255, 255, 0.1) 0%, rgba(69, 20, 208, 0.1) 50%)"
+                          }}
+                        >
                             <h3 className="text-xl font-bold mb-4">{item.title}</h3>
                             <p className="text-gray-300 leading-relaxed">{item.description}</p>
                         </div>

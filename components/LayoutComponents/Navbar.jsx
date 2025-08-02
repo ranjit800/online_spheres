@@ -52,7 +52,7 @@ const Navbar = () => {
         {/* Contact Us Button */}
         <div className="hidden md:block">
           <Link href="/contact">
-            <button className=" bg-[#4514D0] hover:bg-[#9a7af2] transition text-white px-4 py-2 rounded-md font-medium text-sm shadow">
+            <button className=" bg-[#4514D0] hover:bg-[#4514D0]/80 transition text-white px-4 py-2 rounded-3xl font-medium text-sm shadow">
               Contact Us
             </button>
           </Link>
