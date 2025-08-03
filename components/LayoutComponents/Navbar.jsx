@@ -7,6 +7,7 @@ import logo from "@/public/images/Logo2.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -14,6 +15,16 @@ const Navbar = () => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
     return () => (document.body.style.overflow = "unset");
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -26,24 +37,20 @@ const Navbar = () => {
   return (
     <header className="w-full fixed top-0 z-50 px-4 pt-4">
       <div
-        className="max-w-7xl mx-auto flex justify-between items-center 
+        className={`max-w-7xl mx-auto flex justify-between items-center 
         bg-black/50 backdrop-blur-md border border-[#ffffff14] 
-        rounded-full px-6 py-3 shadow-lg"
-
+        rounded-full shadow-lg transition-all duration-300 ease-in-out
+        ${isScrolled ? "px-3 py-1.5 max-w-xl" : "px-6 py-3"}`}
       >
         {/* Logo */}
         <Link href="/">
-          <Image src={logo} alt="Onlinespheres Logo" className="h-10 w-auto" priority />
+          <Image src={logo} alt="Onlinespheres Logo" className={`transition-all duration-300 ease-in-out ${isScrolled ? "h-6" : "h-10"} w-auto`} priority />
         </Link>
 
         {/* Desktop Nav Links */}
         <nav className="hidden md:flex items-center gap-10 text-sm text-white">
           {navLinks.map((link, i) => (
-            <Link
-              key={i}
-              href={link.path}
-              className="hover:text-[#543dff] transition font-medium"
-            >
+            <Link key={i} href={link.path} className="hover:text-[#543dff] transition font-medium">
               {link.name}
             </Link>
           ))}
@@ -52,7 +59,10 @@ const Navbar = () => {
         {/* Contact Us Button */}
         <div className="hidden md:block">
           <Link href="/contact">
-            <button className=" bg-[#4514D0] hover:bg-[#4514D0]/80 transition text-white px-4 py-2 rounded-3xl font-medium text-sm shadow">
+            <button
+              className={`bg-[#4514D0] hover:bg-[#4514D0]/80 transition text-white rounded-3xl font-medium shadow transition-all duration-300 ease-in-out
+              ${isScrolled ? "px-2 py-1 text-xs" : "px-4 py-2 text-sm"}`}
+            >
               Contact Us
             </button>
           </Link>
@@ -82,19 +92,12 @@ const Navbar = () => {
         <div className="px-4 py-20">
           <nav className="flex flex-col space-y-6 text-white">
             {navLinks.map((link, i) => (
-              <Link
-                key={i}
-                href={link.path}
-                onClick={() => setIsMenuOpen(false)}
-                className="text-sm border-b border-gray-700 pb-2"
-              >
+              <Link key={i} href={link.path} onClick={() => setIsMenuOpen(false)} className="text-sm border-b border-gray-700 pb-2">
                 {link.name}
               </Link>
             ))}
             <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-              <button className="mt-4 bg-[#4514D0] hover:bg-[#9a7af2] transition text-white px-4 py-2 rounded-md font-medium text-sm shadow w-full">
-                Contact Us
-              </button>
+              <button className="mt-4 bg-[#4514D0] hover:bg-[#9a7af2] transition text-white px-4 py-2 rounded-md font-medium text-sm shadow w-full">Contact Us</button>
             </Link>
           </nav>
         </div>
