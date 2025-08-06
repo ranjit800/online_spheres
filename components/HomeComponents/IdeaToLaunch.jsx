@@ -125,190 +125,51 @@
 
 // export default IdeaToLaunch;
 
-// "use client";
-// import React, { useState, useEffect, useMemo } from "react";
-// import { motion, AnimatePresence } from "framer-motion";
-// import Image from "next/image";
-// import { Users, Search, PenSquare, Code, TestTube2, Rocket } from "lucide-react";
-
-// const steps = [
-//   {
-//     id: 1,
-//     title: "Consultation", // Shorter title for tab layout
-//     description: "We kick things off with a discovery call to understand your goals, target audience, and specific project needs.",
-//     icon: <Users />,
-//     image: "/images/step-consultation.jpg", 
-//   },
-//   {
-//     id: 2,
-//     title: "Strategy",
-//     description: "We dive into market research and competitor analysis to craft a smart strategy that aligns with your brand.",
-//     icon: <Search />,
-//     image: "/images/step-strategy.jpg",
-//   },
-//   {
-//     id: 3,
-//     title: "UI/UX Design",
-//     description: "Our designers build clean wireframes and high-fidelity UI/UX designs with a focus on user experience.",
-//     icon: <PenSquare />,
-//     image: "/images/step-design.jpg",
-//   },
-//   {
-//     id: 4,
-//     title: "Development",
-//     description: "Our dev team brings the designs to life using modern tools, handling everything from frontend to backend.",
-//     icon: <Code />,
-//     image: "/images/step-development.jpg",
-//   },
-//   {
-//     id: 5,
-//     title: "Testing",
-//     description: "We rigorously test for bugs, performance, and responsiveness to ensure your site is fast and user-friendly.",
-//     icon: <TestTube2 />,
-//     image: "/images/step-testing.jpg",
-//   },
-//   {
-//     id: 6,
-//     title: "Launch",
-//     description: "We go live and stick around for post-launch support, monitoring, and updates as your business grows.",
-//     icon: <Rocket />,
-//     image: "/images/step-launch.jpg",
-//   },
-// ];
-
-// const contentVariants = {
-//   hidden: { opacity: 0, y: 20 },
-//   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-//   exit: { opacity: 0, y: -20, transition: { duration: 0.3, ease: "easeIn" } },
-// };
-
-// const IdeaToLaunch = () => {
-//   const [activeStep, setActiveStep] = useState(steps[0].id);
-  
-//   // Autoplay logic
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setActiveStep(prevStep => (prevStep === steps.length ? 1 : prevStep + 1));
-//     }, 2000); // Change every 2 seconds
-
-//     return () => clearInterval(interval); // Cleanup
-//   }, []);
-
-//   const activeStepData = useMemo(() => steps.find(s => s.id === activeStep), [activeStep]);
-
-//   return (
-//     <section className="py-24 px-4 md:px-12 text-white container mx-auto">
-//       {/* Title */}
-//       <div className="text-center mb-16 max-w-3xl mx-auto">
-//         <h2 className="text-3xl sm:text-5xl font-bold">
-//           Our Process From{" "}
-//           <span className="text-gradient bg-gradient-to-r from-[#321190] to-[#035FBA] text-transparent bg-clip-text">
-//             Idea To Launch
-//           </span>
-//         </h2>
-//       </div>
-
-//       {/* Step Triggers (Tabs) - Horizontal and Clickable */}
-//       <div className="flex flex-row flex-wrap justify-center gap-2 sm:gap-4 mb-12">
-//         {steps.map((step) => (
-//           <button
-//             key={step.id}
-//             onClick={() => setActiveStep(step.id)}
-//             className={`flex items-center gap-2 py-2 px-4 rounded-full transition-all duration-300 ${
-//               activeStep === step.id 
-//                 ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/50' 
-//                 : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-//             }`}
-//           >
-//             {React.cloneElement(step.icon, { size: 18 })}
-//             <span className="font-medium text-sm sm:text-base">{step.title}</span>
-//           </button>
-//         ))}
-//       </div>
-
-//       {/* Wide Content Card Area */}
-//       <div className="relative w-full max-w-4xl mx-auto h-[450px] sm:h-[400px]">
-//         <AnimatePresence mode="wait">
-//           {activeStepData && (
-//             <motion.div
-//               key={activeStepData.id}
-//               className="absolute inset-0 w-full h-full flex flex-col md:flex-row items-center gap-8 bg-[#10101d] p-8 rounded-2xl shadow-2xl border border-white/10"
-//               variants={contentVariants}
-//               initial="hidden"
-//               animate="visible"
-//               exit="exit"
-//             >
-//               {/* Left side of the card (Image) */}
-//               <div className="relative w-full md:w-1/2 h-48 md:h-full rounded-lg overflow-hidden flex-shrink-0">
-//                 <Image
-//                   src={activeStepData.image}
-//                   alt={activeStepData.title}
-//                   fill
-//                   className="object-cover"
-//                 />
-//               </div>
-//               {/* Right side of the card (Text) */}
-//               <div className="flex flex-col items-start w-full md:w-1/2">
-//                 <h3 className="text-3xl font-bold text-white mb-3">{activeStepData.title}</h3>
-//                 <p className="text-gray-300 text-base">{activeStepData.description}</p>
-//               </div>
-//             </motion.div>
-//           )}
-//         </AnimatePresence>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default IdeaToLaunch;
-
-
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Users, Search, PenSquare, Code, TestTube2, Rocket } from "lucide-react";
 
-// The `steps` array remains the same
 const steps = [
   {
     id: 1,
-    title: "Initial Consultation",
+    title: "Consultation", // Shorter title for tab layout
     description: "We kick things off with a discovery call to understand your goals, target audience, and specific project needs.",
     icon: <Users />,
-    image: "/images/step-consultation.avif", 
+    image: "/images/step-launch.jpg",
   },
   {
     id: 2,
-    title: "Research & Strategy",
+    title: "Strategy",
     description: "We dive into market research and competitor analysis to craft a smart strategy that aligns with your brand.",
     icon: <Search />,
-    image: "/images/step-strategy.avif",
+    image: "/images/step-launch.jpg",
   },
   {
     id: 3,
     title: "UI/UX Design",
     description: "Our designers build clean wireframes and high-fidelity UI/UX designs with a focus on user experience.",
     icon: <PenSquare />,
-    image: "/images/step-design.avif",
+    image: "/images/step-launch.jpg",
   },
   {
     id: 4,
     title: "Development",
     description: "Our dev team brings the designs to life using modern tools, handling everything from frontend to backend.",
     icon: <Code />,
-    image: "/images/step-development.avif",
+    image: "/images/step-launch.jpg",
   },
   {
     id: 5,
-    title: "Testing & Optimization",
+    title: "Testing",
     description: "We rigorously test for bugs, performance, and responsiveness to ensure your site is fast and user-friendly.",
     icon: <TestTube2 />,
-    image: "/images/step-testing.avif",
+    image: "/images/step-launch.jpg",
   },
   {
     id: 6,
-    title: "Launch & Support",
+    title: "Launch",
     description: "We go live and stick around for post-launch support, monitoring, and updates as your business grows.",
     icon: <Rocket />,
     image: "/images/step-launch.jpg",
@@ -323,101 +184,229 @@ const contentVariants = {
 
 const IdeaToLaunch = () => {
   const [activeStep, setActiveStep] = useState(steps[0].id);
-  const [isPaused, setIsPaused] = useState(false); // NEW: State to control autoplay pause
 
-  // UPDATED: Autoplay logic now respects the `isPaused` state
+  // Autoplay logic
   useEffect(() => {
-    let interval;
-    if (!isPaused) {
-      interval = setInterval(() => {
-        setActiveStep(prevStep => (prevStep === steps.length ? 1 : prevStep + 1));
-      }, 2000);
-    }
-    
-    // Cleanup function to clear interval when component unmounts or `isPaused` changes
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
-  }, [isPaused]); // Re-run this effect whenever `isPaused` changes
+    const interval = setInterval(() => {
+      setActiveStep((prevStep) => (prevStep === steps.length ? 1 : prevStep + 1));
+    }, 2000); // Change every 2 seconds
 
-  const activeStepData = useMemo(() => steps.find(s => s.id === activeStep), [activeStep]);
+    return () => clearInterval(interval); // Cleanup
+  }, []);
+
+  const activeStepData = useMemo(() => steps.find((s) => s.id === activeStep), [activeStep]);
 
   return (
-    <section className="py-16 px-4 md:px-12 text-white container mx-auto">
+    <section className="py-24 px-4 md:px-12 text-white container mx-auto">
       {/* Title */}
       <div className="text-center mb-16 max-w-3xl mx-auto">
         <h2 className="text-3xl sm:text-5xl font-bold">
-          Our Process From{" "}
-          <span className="text-gradient bg-gradient-to-r from-[#321190] to-[#035FBA] text-transparent bg-clip-text">
-            Idea To Launch
-          </span>
+          Our Process From <span className="text-gradient bg-gradient-to-r from-[#321190] to-[#035FBA] text-transparent bg-clip-text">Idea To Launch</span>
         </h2>
       </div>
 
-      <div className="relative grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
-        
-        {/* UPDATED: Added hover events to the left column */}
-        <div 
-          className="flex flex-col lg:col-span-2"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          {steps.map((step) => (
-            <div
-              key={step.id}
-              onClick={() => setActiveStep(step.id)}
-              style={{ cursor: 'pointer' }}
-              className={`flex items-center gap-4 py-6 border-l-2 transition-all duration-300 ${
-                activeStep === step.id ? "border-blue-500" : "border-gray-700"
-              }`}
-            >
-              <div className={`ml-[-18px] w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                activeStep === step.id ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/50' : 'bg-gray-700 text-gray-400'
-              }`}>
-                {step.icon}
-              </div>
-              <h4 className={`text-xl font-medium transition-colors duration-300 ${
-                activeStep === step.id ? 'text-white' : 'text-gray-400'
-              }`}>{step.title}</h4>
-            </div>
-          ))}
-        </div>
+      {/* Step Triggers (Tabs) - Horizontal and Clickable */}
+      <div className="flex flex-row flex-wrap justify-center gap-2 sm:gap-4 mb-12">
+        {steps.map((step) => (
+          <button
+            key={step.id}
+            onClick={() => setActiveStep(step.id)}
+            className={`flex items-center gap-2 py-2 px-4 rounded-full transition-all duration-300 ${
+              activeStep === step.id ? "bg-blue-600 text-white shadow-lg shadow-blue-600/50" : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+            }`}
+          >
+            {React.cloneElement(step.icon, { size: 18 })}
+            <span className="font-medium text-sm sm:text-base">{step.title}</span>
+          </button>
+        ))}
+      </div>
 
-        {/* UPDATED: Added hover events to the right column */}
-        <div 
-          className="relative h-[450px] lg:col-span-3"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          <AnimatePresence mode="wait">
-            {activeStepData && (
-              <motion.div
-                key={activeStepData.id}
-                className="absolute inset-0 w-full h-full flex flex-col justify-center items-start bg-[#10101d] p-8 rounded-2xl shadow-2xl border border-white/10"
-                variants={contentVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-              >
-                <div className="relative w-full h-48 mb-6 rounded-lg overflow-hidden">
-                  <Image
-                    src={activeStepData.image}
-                    alt={activeStepData.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-2">{activeStepData.title}</h3>
-                <p className="text-gray-300">{activeStepData.description}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+      {/* Wide Content Card Area */}
+      <div className="relative w-full max-w-4xl mx-auto h-[450px] sm:h-[400px]">
+        <AnimatePresence mode="wait">
+          {activeStepData && (
+            <motion.div
+              key={activeStepData.id}
+              className="absolute inset-0 w-full h-full flex flex-col md:flex-row items-center gap-8 bg-[#10101d] p-8 rounded-2xl shadow-2xl border border-white/10"
+              variants={contentVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              {/* Left side of the card (Image) */}
+              <div className="relative w-full md:w-1/2 h-48 md:h-full rounded-lg overflow-hidden flex-shrink-0">
+                <Image src={activeStepData.image} alt={activeStepData.title} fill className="object-cover" />
+              </div>
+              {/* Right side of the card (Text) */}
+              <div className="flex flex-col items-start w-full md:w-1/2">
+                <h3 className="text-3xl font-bold text-white mb-3">{activeStepData.title}</h3>
+                <p className="text-gray-300 text-base">{activeStepData.description}</p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
 };
 
 export default IdeaToLaunch;
+
+// "use client";
+// import React, { useState, useEffect, useMemo } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import Image from "next/image";
+// import { Users, Search, PenSquare, Code, TestTube2, Rocket } from "lucide-react";
+
+// // The `steps` array remains the same
+// const steps = [
+//   {
+//     id: 1,
+//     title: "Initial Consultation",
+//     description: "We kick things off with a discovery call to understand your goals, target audience, and specific project needs.",
+//     icon: <Users />,
+//     image: "/images/step-consultation.avif",
+//   },
+//   {
+//     id: 2,
+//     title: "Research & Strategy",
+//     description: "We dive into market research and competitor analysis to craft a smart strategy that aligns with your brand.",
+//     icon: <Search />,
+//     image: "/images/step-strategy.avif",
+//   },
+//   {
+//     id: 3,
+//     title: "UI/UX Design",
+//     description: "Our designers build clean wireframes and high-fidelity UI/UX designs with a focus on user experience.",
+//     icon: <PenSquare />,
+//     image: "/images/step-design.avif",
+//   },
+//   {
+//     id: 4,
+//     title: "Development",
+//     description: "Our dev team brings the designs to life using modern tools, handling everything from frontend to backend.",
+//     icon: <Code />,
+//     image: "/images/step-development.avif",
+//   },
+//   {
+//     id: 5,
+//     title: "Testing & Optimization",
+//     description: "We rigorously test for bugs, performance, and responsiveness to ensure your site is fast and user-friendly.",
+//     icon: <TestTube2 />,
+//     image: "/images/step-testing.avif",
+//   },
+//   {
+//     id: 6,
+//     title: "Launch & Support",
+//     description: "We go live and stick around for post-launch support, monitoring, and updates as your business grows.",
+//     icon: <Rocket />,
+//     image: "/images/step-launch.jpg",
+//   },
+// ];
+
+// const contentVariants = {
+//   hidden: { opacity: 0, y: 20 },
+//   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+//   exit: { opacity: 0, y: -20, transition: { duration: 0.3, ease: "easeIn" } },
+// };
+
+// const IdeaToLaunch = () => {
+//   const [activeStep, setActiveStep] = useState(steps[0].id);
+//   const [isPaused, setIsPaused] = useState(false); // NEW: State to control autoplay pause
+
+//   // UPDATED: Autoplay logic now respects the `isPaused` state
+//   useEffect(() => {
+//     let interval;
+//     if (!isPaused) {
+//       interval = setInterval(() => {
+//         setActiveStep(prevStep => (prevStep === steps.length ? 1 : prevStep + 1));
+//       }, 2000);
+//     }
+
+//     // Cleanup function to clear interval when component unmounts or `isPaused` changes
+//     return () => {
+//       if (interval) {
+//         clearInterval(interval);
+//       }
+//     };
+//   }, [isPaused]); // Re-run this effect whenever `isPaused` changes
+
+//   const activeStepData = useMemo(() => steps.find(s => s.id === activeStep), [activeStep]);
+
+//   return (
+//     <section className="py-16 px-4 md:px-12 text-white container mx-auto">
+//       {/* Title */}
+//       <div className="text-center mb-16 max-w-3xl mx-auto">
+//         <h2 className="text-3xl sm:text-5xl font-bold">
+//           Our Process From{" "}
+//           <span className="text-gradient bg-gradient-to-r from-[#321190] to-[#035FBA] text-transparent bg-clip-text">
+//             Idea To Launch
+//           </span>
+//         </h2>
+//       </div>
+
+//       <div className="relative grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+
+//         {/* UPDATED: Added hover events to the left column */}
+//         <div
+//           className="flex flex-col lg:col-span-2"
+//           onMouseEnter={() => setIsPaused(true)}
+//           onMouseLeave={() => setIsPaused(false)}
+//         >
+//           {steps.map((step) => (
+//             <div
+//               key={step.id}
+//               onClick={() => setActiveStep(step.id)}
+//               style={{ cursor: 'pointer' }}
+//               className={`flex items-center gap-4 py-6 border-l-2 transition-all duration-300 ${
+//                 activeStep === step.id ? "border-blue-500" : "border-gray-700"
+//               }`}
+//             >
+//               <div className={`ml-[-18px] w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+//                 activeStep === step.id ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/50' : 'bg-gray-700 text-gray-400'
+//               }`}>
+//                 {step.icon}
+//               </div>
+//               <h4 className={`text-xl font-medium transition-colors duration-300 ${
+//                 activeStep === step.id ? 'text-white' : 'text-gray-400'
+//               }`}>{step.title}</h4>
+//             </div>
+//           ))}
+//         </div>
+
+//         {/* UPDATED: Added hover events to the right column */}
+//         <div
+//           className="relative h-[450px] lg:col-span-3"
+//           onMouseEnter={() => setIsPaused(true)}
+//           onMouseLeave={() => setIsPaused(false)}
+//         >
+//           <AnimatePresence mode="wait">
+//             {activeStepData && (
+//               <motion.div
+//                 key={activeStepData.id}
+//                 className="absolute inset-0 w-full h-full flex flex-col justify-center items-start bg-[#10101d] p-8 rounded-2xl shadow-2xl border border-white/10"
+//                 variants={contentVariants}
+//                 initial="hidden"
+//                 animate="visible"
+//                 exit="exit"
+//               >
+//                 <div className="relative w-full h-48 mb-6 rounded-lg overflow-hidden">
+//                   <Image
+//                     src={activeStepData.image}
+//                     alt={activeStepData.title}
+//                     fill
+//                     className="object-cover"
+//                   />
+//                 </div>
+//                 <h3 className="text-2xl font-bold text-white mb-2">{activeStepData.title}</h3>
+//                 <p className="text-gray-300">{activeStepData.description}</p>
+//               </motion.div>
+//             )}
+//           </AnimatePresence>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default IdeaToLaunch;

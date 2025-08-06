@@ -10,7 +10,7 @@
 
 
 body {
-  @apply bg-[#0B0212] text-white; /* or use regular CSS below */
+  @apply bg-[#111315] text-white; /* or use regular CSS below */
 
   /* Regular CSS way: */
   /* background-color: #0B0212; */

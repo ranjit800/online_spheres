@@ -2,20 +2,37 @@
 import React from "react";
 import Image from "next/image";
 import background from "@/public/images/HeroSectionImg/bg3.png";
+import Lottie from "lottie-react";
+
+import Kinoplau from "@/public/json/KINOPLAU - Possibilities  Update.json"
+
+
+
+
+
+
 
 const HeroHome = () => {
   return (
-    <div className="relative flex items-center justify-center min-h-screen text-white overflow-hidden">
-      <Image
+    <div className="relative flex items-center justify-center md:min-h-screen  text-white overflow-hidden">
+      {/* <Image
         src={background}
         alt="A dark, abstract background with planetary bodies"
         fill
         style={{ objectFit: 'cover' }}
         className=""
         priority
-      />
+      /> */}
 
-      <div className="relative z-10 flex flex-col items-center text-center p-8 select-none">
+      <div id="bgImage" className="absolute md:w-[100%] w-full  ">
+        <Lottie
+          animationData={Kinoplau}
+          loop={true}
+          autoplay={true}
+        />
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center text-center md:p-8 p-2 select-none">
         <h1 className="font-bold text-4xl md:text-6xl lg:text-7xl leading-tight">
           Everything You Need to <br />
           <span className="text-5xl md:text-7xl lg:text-8xl">Succeed Online</span>
@@ -25,21 +42,21 @@ const HeroHome = () => {
           No matter your industry, we build websites tailored to your brand, goals, and audience—seamless, user-friendly, and scalable to help you grow!
         </p>
 
-        <a 
-          href="#contact" 
+        <a
+          href="#contact"
           className="mt-8 text-lg font-semibold flex items-center gap-2 group"
         >
           Book a Meeting
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="transition-transform duration-300 group-hover:translate-x-1"
           >
             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -51,4 +68,7 @@ const HeroHome = () => {
   );
 };
 
-export default HeroHome;
+export default HeroHome;
+
+
+

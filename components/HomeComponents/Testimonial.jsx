@@ -53,8 +53,12 @@ const Testimonial = () => {
     <div className="bg-black">
       <div className="flex bh-white flex-col py-20 items-center justify-center container mx-auto space-y-7 px-5">
         <div className="flex items-center gap-3 p-2 px-2 bg-slate-800 rounded-3xl">
-          <div className="star p-2 bg-primaryCyan rounded-full">
-            <img src={star} className="w-3" alt="" />
+          <div className="star p-2 bg-primaryCyan rounded-full flex">
+            <Image src={star} className="w-3" alt="" />
+            <Image src={star} className="w-3" alt="" />
+            <Image src={star} className="w-3" alt="" />
+            <Image src={star} className="w-3" alt="" />
+
           </div>
           <h1 className="text-white text-xs lg:text-sm px-4 font-poppins">
             Rated 4/5 by over 1 lakh users

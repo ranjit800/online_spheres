@@ -3,11 +3,12 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/public/images/Logo2.png";
+import logo from "@/public/images/logo4.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -18,13 +19,23 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
+      const currentScrollY = window.scrollY;
+
+      // Only trigger small navbar when scrolling down and past 50px
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setIsScrolled(true);
+      }
+      // Return to initial size when scrolling up
+      else if (currentScrollY < lastScrollY) {
+        setIsScrolled(false);
+      }
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -35,16 +46,16 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="w-full fixed top-0 z-50 px-4 pt-4">
+    <header className="w-full fixed top-0 z-20 px-10 pt-4">
       <div
         className={`max-w-7xl mx-auto flex justify-between items-center 
         bg-black/50 backdrop-blur-md border border-[#ffffff14] 
         rounded-full shadow-lg transition-all duration-300 ease-in-out
-        ${isScrolled ? "px-3 py-1.5 max-w-xl" : "px-6 py-3"}`}
+        ${isScrolled ? "px-3 py-1.5 max-w-[90vh]" : "px-6 py-3"}`}
       >
         {/* Logo */}
         <Link href="/">
-          <Image src={logo} alt="Onlinespheres Logo" className={`transition-all duration-300 ease-in-out ${isScrolled ? "h-6" : "h-10"} w-auto`} priority />
+          <Image src={logo} alt="Onlinespheres Logo" className="h-10 w-auto transition-all duration-300 ease-in-out" priority />
         </Link>
 
         {/* Desktop Nav Links */}
@@ -57,10 +68,10 @@ const Navbar = () => {
         </nav>
 
         {/* Contact Us Button */}
-        <div className="hidden md:block">
+        <div className="hidden md:block text-nowrap">
           <Link href="/contact">
             <button
-              className={`bg-[#4514D0] hover:bg-[#4514D0]/80 transition text-white rounded-3xl font-medium shadow transition-all duration-300 ease-in-out
+              className={`bg-[#6338D8] hover:bg-[#9000FF]/80 transition text-white rounded-3xl font-medium shadow transition-all duration-300 ease-in-out
               ${isScrolled ? "px-2 py-1 text-xs" : "px-4 py-2 text-sm"}`}
             >
               Contact Us
@@ -81,11 +92,11 @@ const Navbar = () => {
       </div>
 
       {/* Overlay */}
-      {isMenuOpen && <div className="fixed inset-0 bg-black/50 z-40" onClick={toggleMenu} />}
+      {isMenuOpen && <div className="fixed inset-0 bg-black/20 z-30" onClick={toggleMenu} />}
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-[#120022] backdrop-blur-md z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 left-0 h-full w-64 bg-[#120022] backdrop-blur-md z-20 transform transition-transform duration-300 ease-in-out md:hidden ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -97,7 +108,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-              <button className="mt-4 bg-[#4514D0] hover:bg-[#9a7af2] transition text-white px-4 py-2 rounded-md font-medium text-sm shadow w-full">Contact Us</button>
+              <button className="mt-4 bg-[#6338D8] hover:bg-[#9000FF]/80 transition text-white px-4 py-2 rounded-md font-medium text-sm shadow w-full">Contact Us</button>
             </Link>
           </nav>
         </div>

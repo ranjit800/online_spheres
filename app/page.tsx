@@ -7,6 +7,15 @@ import WhyChooseUs from '@/components/HomeComponents/WhyChooseUs'
 import IdeaToLaunch from '@/components/HomeComponents/IdeaToLaunch'
 import Testimonial from '@/components/HomeComponents/Testimonial'
 import Anidea from '@/components/HomeComponents/Anidea'
+import Faq from '@/components/HomeComponents/Faq'
+import Shineonline  from '@/components/HomeComponents/Shineonline'
+import OurCreations  from '@/components/HomeComponents/OurCreations';
+import Technologiya  from '@/components/Ui/Technologiya';
+
+
+
+
+
 
 
 
@@ -17,11 +26,15 @@ const page = () => {
       <HeroHome/>
       <AboutSection/>
       <WhyStandOut />
+      <Technologiya/>
       <OurExpertise/>
       <WhyChooseUs/>
       <IdeaToLaunch />
       <Testimonial/>
       <Anidea/>
+      <Faq />
+      <Shineonline />
+      <OurCreations/>
     </>
   )
 }
