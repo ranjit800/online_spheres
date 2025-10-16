@@ -1,37 +1,18 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import background from "@/public/images/HeroSectionImg/bg3.png";
 import Lottie from "lottie-react";
-
-import Kinoplau from "@/public/json/KINOPLAU - Possibilities  Update.json"
-
-
-
-
-
-
+import Kinoplau from "@/public/json/KINOPLAU - Possibilities  Update.json";
+import Button from "../Ui/Button"; // 👈 import button
 
 const HeroHome = () => {
   return (
-    <div className="relative flex items-center justify-center md:min-h-screen  text-white overflow-hidden">
-      {/* <Image
-        src={background}
-        alt="A dark, abstract background with planetary bodies"
-        fill
-        style={{ objectFit: 'cover' }}
-        className=""
-        priority
-      /> */}
-
-      <div id="bgImage" className="absolute md:w-[100%] w-full  ">
-        <Lottie
-          animationData={Kinoplau}
-          loop={true}
-          autoplay={true}
-        />
+    <div className="relative flex items-center justify-center md:min-h-screen text-white overflow-hidden">
+      {/* Background animation */}
+      <div id="bgImage" className="absolute md:w-[100%] w-full">
+        <Lottie animationData={Kinoplau} loop={true} autoplay={true} />
       </div>
 
+      {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center md:p-8 p-2 select-none">
         <h1 className="font-bold text-4xl md:text-6xl lg:text-7xl leading-tight">
           Everything You Need to <br />
@@ -42,33 +23,22 @@ const HeroHome = () => {
           No matter your industry, we build websites tailored to your brand, goals, and audience—seamless, user-friendly, and scalable to help you grow!
         </p>
 
-        <a
-          href="#contact"
-          className="mt-8 text-lg font-semibold flex items-center gap-2 group"
-        >
-          Book a Meeting
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="transition-transform duration-300 group-hover:translate-x-1"
-          >
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
+        {/* Transparent Button */}
+        <div className="mt-10">
+          <Button
+            text="Book A Meeting"
+            circleFrom="from-blue-600"
+            circleTo="to-purple-600"
+            onClick={() => {
+              document.getElementById("contact")?.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-export default HeroHome;
-
-
-
+export default HeroHome;
