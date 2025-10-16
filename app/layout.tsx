@@ -3,8 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import SmoothScroll from "@/components/SmoothScroll"; // ✅ Fixed typo
-import Navbar from "@/components/LayoutComponents/Navbar";
-import Footer from "@/components/LayoutComponents/Footer";
+// import Navbar from "@/components/LayoutComponents/Navbar";
+// import Footer from "@/components/LayoutComponents/Footer";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -23,9 +23,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <SmoothScroll />
-        <Navbar />
+        {/* <Navbar /> */}
         <main className="">{children}</main>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
